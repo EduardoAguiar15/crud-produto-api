@@ -1,0 +1,10 @@
+require('dotenv').config();
+
+// Permite criar caminhos a partir de alguma coisa.
+const path = require('path');
+
+module.exports = {
+  // Aqui é onde indicamos onde o sequelize vai pegaras configurações
+  config: path.resolve(__dirname, 'src', 'configs', 'database.js'),
+  'migrations-path': path.resolve(__dirname,'src','database', 'migrations')
+}
