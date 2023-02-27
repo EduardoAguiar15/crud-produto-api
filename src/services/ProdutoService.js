@@ -19,7 +19,6 @@ async function obterPorId(id) {
     throw new NaoEncontradoError(404, 'Não foi possível encontrar o produto com id ' + id);
   }
 
-
   return produto;
 }
 
