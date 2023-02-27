@@ -6,14 +6,14 @@ const ModeloInvalidoError = class ModeloInvalidoError {
      */
     constructor (status, mensagem) {
         this.status = status || 400;
-        this.message = mensagem || "Omodelo informando é invalido.";
+        this.message = mensagem || "O modelo informando é invalido.";
         this.name = "ModeloInvalido";
         this.stack = (new Error()).stack;
     }
 }
 const NaoEncontradoError = class NaoEncontradoError {
      /**
-     *  Classe utilizada para exceções do objeto ou recursos não encontrados
+     *  Classe utilizada para exceções de acessos ou recursos não autorizado
      * @param {Number} status 
      * @param {String} mensagem 
      */
@@ -24,21 +24,35 @@ const NaoEncontradoError = class NaoEncontradoError {
         this.stack = (new Error()).stack;
     }
 }
+const NaoAutorizadoError = class NaoAutorizadoError {
+    /**
+     * Classe utilizada para exceções de acessos ou recursos não autorizados.
+     * @param {Number} status 
+     * @param {String} mensagem 
+     */
+    constructor(status, mensagem) {
+      this.status = status || 404;
+      this.message = mensagem || "Não Autorizado.";
+      this.name = "NaoAutorizado";
+      this.stack = (new Error()).stack;
+    }
+  }
 const AplicacaoError = class AplicacaoError {
      /**
-     * Classe utilizada para exceções e erros interno da aplicação
+     * Classe utilizada para erros internos da aplicação
      * @param {Number} status 
      * @param {String} mensagem 
      */
     constructor (status, mensagem) {
         this.status = status || 500;
         this.message = `Erro interno na aplicação ${mensagem && '- ' + mensagem}`;
-        this.name = "Aplicação";
+        this.name = "Aplicacao";
         this.stack = (new Error()).stack;
     }
 }
 module.exports = {
     ModeloInvalidoError,
     NaoEncontradoError,
+    NaoAutorizadoError,
     AplicacaoError
 }

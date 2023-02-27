@@ -4,7 +4,8 @@ require('dotenv').config();
 const path = require('path');
 
 module.exports = {
-  // Aqui é onde indicamos onde o sequelize vai pegaras configurações
+  // Aqui é onde indicamos onde (path - caminho) o sequelize vai pegar configurações
   config: path.resolve(__dirname, 'src', 'configs', 'database.js'),
-  'migrations-path': path.resolve(__dirname,'src','database', 'migrations')
+  'migrations-path': path.resolve(__dirname,'src','database', 'migrations'),
+  'seeders-path': path.resolve(__dirname, 'src', 'database', 'seeders')
 }
