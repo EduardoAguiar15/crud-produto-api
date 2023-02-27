@@ -13,7 +13,7 @@ async function validarUsuario(email, senha) {
   senha = geradorToken.gerarHashDaSenha(senha);
 
   if (!usuario || (usuario.senha !== senha)) {
-    throw new NaoAutorizadoError(401, "Usuário ou senha inválidos.")
+    throw new NaoAutorizadoError(401, "Usuário ou senha inválidos.");
   }
 
   return _criarCredencial(usuario);
