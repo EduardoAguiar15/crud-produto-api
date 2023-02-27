@@ -46,7 +46,7 @@ class CategoriaController {
         throw new ModeloInvalidoError(400, 'Id inválido para consulta de categoria.')
       }
 
-      const categoriaDTO = new CategoriaDTO({id, ...req.body});
+      const categoriaDTO = new CategoriaDTO({ id, ...req.body });
       categoriaDTO.modeloValidoCadastro();
 
       const produto = await categoriaService.atualizar(id, req.body);
