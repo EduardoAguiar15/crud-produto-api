@@ -53,7 +53,6 @@ routes.put("/usuarios/:id", usuarioController.atualizar);
 
 //rotas de login - Definindo
 routes.post("/login", usuarioController.login);
-
 routes.delete("/logout", usuarioController.logout);
 
 
