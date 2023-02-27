@@ -6,9 +6,9 @@ const usuarioService = require('./src/services/UsuarioService');
 
 
 //Esse cara é um interceptor, ele intercepta todas as requisições e aqui podemos tomar ação especifica.
-routes.use( async (req, res, next) => {
+routes.use(async (req, res, next) => {
     const { authorization } = req.headers;
-    const  autenticado = await usuarioService.validarAutenticacao(authorization);
+    const autenticado = await usuarioService.validarAutenticacao(authorization);
 
     // if(!autenticado && req.originalUrl !== '/login') {
     //     return res.status (401).json({
@@ -17,7 +17,7 @@ routes.use( async (req, res, next) => {
     //     name: 'Nao Autorizado'
     //     });
     // }
-next();
+    next();
 
 });
 

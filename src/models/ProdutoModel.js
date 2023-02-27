@@ -13,7 +13,7 @@ class ProdutoModel extends Model {
       valor: DataTypes.DOUBLE,
       qtdEstoque: DataTypes.INTEGER,
       categoriaId: DataTypes.BIGINT
-    },{
+    }, {
       sequelize: connection,
       schema: 'public',
       tableName: 'produtos',

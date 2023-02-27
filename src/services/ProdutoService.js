@@ -5,7 +5,7 @@ const { NaoEncontradoError, AplicacaoError } = require("../errors/typeError");
 
 async function obterTodos() {
   return await ProdutoModel.findAll({
-    include:{
+    include: {
       model: CategoriaModel,
       attributes: ["descricao"]
     }

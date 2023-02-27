@@ -4,7 +4,7 @@ const ModeloInvalidoError = class ModeloInvalidoError {
      * @param {Number} status 
      * @param {String} mensagem 
      */
-    constructor (status, mensagem) {
+    constructor(status, mensagem) {
         this.status = status || 400;
         this.message = mensagem || "O modelo informando é invalido.";
         this.name = "ModeloInvalido";
@@ -12,12 +12,12 @@ const ModeloInvalidoError = class ModeloInvalidoError {
     }
 }
 const NaoEncontradoError = class NaoEncontradoError {
-     /**
-     *  Classe utilizada para exceções de acessos ou recursos não autorizado
-     * @param {Number} status 
-     * @param {String} mensagem 
-     */
-    constructor (status, mensagem) {
+    /**
+    *  Classe utilizada para exceções de acessos ou recursos não autorizado
+    * @param {Number} status 
+    * @param {String} mensagem 
+    */
+    constructor(status, mensagem) {
         this.status = status || 404;
         this.message = mensagem || "Nao encontrado.";
         this.name = "NaoEncontrado";
@@ -31,19 +31,19 @@ const NaoAutorizadoError = class NaoAutorizadoError {
      * @param {String} mensagem 
      */
     constructor(status, mensagem) {
-      this.status = status || 404;
-      this.message = mensagem || "Não Autorizado.";
-      this.name = "NaoAutorizado";
-      this.stack = (new Error()).stack;
+        this.status = status || 404;
+        this.message = mensagem || "Não Autorizado.";
+        this.name = "NaoAutorizado";
+        this.stack = (new Error()).stack;
     }
-  }
+}
 const AplicacaoError = class AplicacaoError {
-     /**
-     * Classe utilizada para erros internos da aplicação
-     * @param {Number} status 
-     * @param {String} mensagem 
-     */
-    constructor (status, mensagem) {
+    /**
+    * Classe utilizada para erros internos da aplicação
+    * @param {Number} status 
+    * @param {String} mensagem 
+    */
+    constructor(status, mensagem) {
         this.status = status || 500;
         this.message = `Erro interno na aplicação ${mensagem && '- ' + mensagem}`;
         this.name = "Aplicacao";

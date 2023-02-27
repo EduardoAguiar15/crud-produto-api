@@ -4,7 +4,7 @@ class CategoriaModel extends Model {
   static init(connection) {
     super.init({
       descricao: DataTypes.STRING,
-    },{
+    }, {
       sequelize: connection,
       schema: 'public',
       tableName: 'categorias',

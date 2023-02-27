@@ -1,6 +1,6 @@
-const { ModeloInvalidoError } = require ("../errors/typeError");
+const { ModeloInvalidoError } = require("../errors/typeError");
 module.exports = class usuarioDTO {
-    constructor (obj) {
+    constructor(obj) {
         obj = obj || {};
 
         this.id = obj.id;
@@ -11,21 +11,21 @@ module.exports = class usuarioDTO {
         this.atualizadoEm = obj.atualizadoEm;
     }
 
-    modeloValidoCadastro(){
+    modeloValidoCadastro() {
 
         const validacao = !!(this.email && this.senha && this.nome);
 
-        if(!validacao) {
-            throw new ModeloInvalidoError (400, "os campos nome, e-mail e senha são obrigatorios")
+        if (!validacao) {
+            throw new ModeloInvalidoError(400, "os campos nome, e-mail e senha são obrigatorios")
         }
-        
+
     }
-    modeloValidoatualizacao(){
+    modeloValidoatualizacao() {
 
         const validacao = !!(this.id && this.email && this.nome);
 
-        if(!validacao) {
-            throw new ModeloInvalidoError (400, "os campos id, nome e email são obrigatorios")
+        if (!validacao) {
+            throw new ModeloInvalidoError(400, "os campos id, nome e email são obrigatorios")
         }
     }
 }
