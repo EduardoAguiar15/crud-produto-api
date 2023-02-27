@@ -1,7 +1,7 @@
 const usuarioService = require('../services/UsuarioService');
 const { NaoAutorizadoError, ModeloInvalidoError } = require("../errors/typeError");
 
-const  UsuarioDTO = require("../dtos/UsuarioDTO")
+const UsuarioDTO = require("../dtos/UsuarioDTO")
 
 class UsuarioController {
     async login(req, res) {
@@ -29,7 +29,7 @@ class UsuarioController {
             return res.status(error.status).json(error);
         }
     }
-    async obterTodos (req, res) {
+    async obterTodos(req, res) {
         try {
             const usuarios = await usuarioService.obterTodos();
             return res.json(usuarios);
@@ -40,15 +40,15 @@ class UsuarioController {
     }
 
     async obterPorId(req, res) {
-      const { id } = req.params;
-      
+        const { id } = req.params;
+
         try {
-         if(!id || isNaN(id)){
-            throw new ModeloInvalidoError(400,"id invalido para consulta de usuario.")
-        } 
-        const usuario = await usuarioService.obterPorId(id);
-        return res.json(usuario);
-    }
+            if (!id || isNaN(id)) {
+                throw new ModeloInvalidoError(400, "id invalido para consulta de usuario.")
+            }
+            const usuario = await usuarioService.obterPorId(id);
+            return res.json(usuario);
+        }
         catch (error) {
             console.error(error);
             return res.status(error.status).json(error);
@@ -56,25 +56,25 @@ class UsuarioController {
     }
     async atualizar(req, res) {
         const { id } = req.params;
-        
-          try {
-           if(!id || isNaN(id)){
-              throw new ModeloInvalidoError(400,"id invalido para consulta de usuario.")
-          } 
-          const usuarioDTO = new UsuarioDTO({ id, ...req.body});
-          usuarioDTO.modeloValidoatualizacao();
 
-          const usuario = await usuarioService.atualizar(usuarioDTO);
-          return res.json(usuario);
-      }
-          catch (error) {
-              console.error(error);
-              return res.status(error.status).json(error);
-          }
-      }
-  
+        try {
+            if (!id || isNaN(id)) {
+                throw new ModeloInvalidoError(400, "id invalido para consulta de usuario.")
+            }
+            const usuarioDTO = new UsuarioDTO({ id, ...req.body });
+            usuarioDTO.modeloValidoatualizacao();
 
-    async cadastrar (req, res) {
+            const usuario = await usuarioService.atualizar(usuarioDTO);
+            return res.json(usuario);
+        }
+        catch (error) {
+            console.error(error);
+            return res.status(error.status).json(error);
+        }
+    }
+
+
+    async cadastrar(req, res) {
         try {
             const usuarioDTO = new UsuarioDTO(req.body);
             usuarioDTO.modeloValidoCadastro();
