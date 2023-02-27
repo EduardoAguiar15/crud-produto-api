@@ -17,7 +17,7 @@ routes.use(async (req, res, next) => {
     //     name: 'Nao Autorizado'
     //     });
     // }
-    
+
     next();
 });
 
@@ -46,11 +46,8 @@ const usuarioController = new UsuarioController();
 
 // Rotas de Usuarios - Definindo endpoints
 routes.get("/usuarios", usuarioController.obterTodos);
-
 routes.get("/usuarios/:id", usuarioController.obterPorId);
-
 routes.post("/usuarios", usuarioController.cadastrar);
-
 routes.put("/usuarios/:id", usuarioController.atualizar);
 
 
