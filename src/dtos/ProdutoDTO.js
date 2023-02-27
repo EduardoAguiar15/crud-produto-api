@@ -1,6 +1,5 @@
 const { ModeloInvalidoError } = require('../errors/typeError');
 
-
 class ProdutoDTO {
     constructor(obj) {
         obj = obj || {};
