@@ -81,7 +81,7 @@ async function atualizar(usuarioDTO) {
   }
 
   if (await UsuarioModel.findOne({ where: { email } })) {
-    throw new ModeloInvalidoError(400, "E-mail já cadastrado, tente outro por favor.")
+    throw new ModeloInvalidoError(400, "E-mail já cadastrado, tente outro por favor.");
   }
 
   usuarioDTO.senha = usuario.senha;
