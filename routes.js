@@ -17,8 +17,8 @@ routes.use(async (req, res, next) => {
     //     name: 'Nao Autorizado'
     //     });
     // }
+    
     next();
-
 });
 
 const ProdutoController = require("./src/controllers/ProdutoController");
